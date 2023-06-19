@@ -78,7 +78,27 @@ export default function Quiz() {
     }, 5000);
   }
 
-  function save_the_quiz() {}
+  function save_the_quiz() {
+    try {
+      fetch("https://vercel.com/masumkhan/quiz-back-end/quizes/add", {
+        method: "post",
+        body: JSON.stringify({
+          questions: questions,
+          options: options,
+          settings: quiz_settings,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          console.log(json.data + "  pokath:  " + JSON.stringify(json));
+        });
+    } catch (err) {
+      console.log(JSON.stringify(err));
+    }
+  }
 
   return (
     <div className=" bg-slate-100 min-h-screen md:container mx-auto">
