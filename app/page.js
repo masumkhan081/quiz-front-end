@@ -74,7 +74,7 @@ export default function Home() {
   const inpClasses = "bg-slate-100 font-mono text-yellow-600";
   //
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <Quiz />
       {/* <h1>hello: {username}</h1>
       <a href="/auth">auth</a>

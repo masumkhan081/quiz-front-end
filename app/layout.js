@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="bg-slate-100" style={{ width: "100%" }}>
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
