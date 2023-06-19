@@ -29,7 +29,7 @@ export default function Quiz() {
   const [options, setOptions] = useState([]);
   const [count, setCount] = useState(0);
   const [que_add_mode, set_que_add_mode] = useState(false);
-  const [error_msg, set_error_msg] = useState("");
+  const [error_msg, set_error_msg] = useState("...");
 
   function add_single_quiz(quetext, opt) {
     setQuestions([...questions, quetext]);
@@ -80,7 +80,7 @@ export default function Quiz() {
 
   function save_the_quiz() {
     try {
-      fetch("https://vercel.com/masumkhan/quiz-back-end/quizes/add", {
+      fetch("https://quiz-back-end.vercel.app/quizes/add", {
         method: "post",
         body: JSON.stringify({
           questions: questions,
@@ -93,7 +93,8 @@ export default function Quiz() {
       })
         .then((res) => res.json())
         .then((json) => {
-          console.log(json.data + "  pokath:  " + JSON.stringify(json));
+          set_error_msg(JSON.stringify(json));
+          console.log(json.data + " :  " + JSON.stringify(json));
         });
     } catch (err) {
       console.log(JSON.stringify(err));
